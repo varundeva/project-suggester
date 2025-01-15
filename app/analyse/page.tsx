@@ -1,3 +1,4 @@
+export const maxDuration = 60;
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { redirect } from "next/navigation";
 import { analyzeUserSkills } from "@/lib/repoDataAggrigator";

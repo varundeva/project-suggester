@@ -1,3 +1,4 @@
+export const maxDuration = 60;
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { NextRequest, NextResponse } from "next/server";
 import { fetchUserData, fetchRepos, fetchLanguages } from "@/lib/github";
