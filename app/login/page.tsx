@@ -6,22 +6,14 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 
 export default function LoginPage() {
-  const { status } = useSession();
+  const { data: session } = useSession()
   const router = useRouter();
 
   useEffect(() => {
-    if (status === "authenticated") {
-      router.push("/analyse"); // Redirect to dashboard if already logged in
+    if (session) {
+      router.push("/analyse"); 
     }
-  }, [status, router]);
-
-  if (status === "loading") {
-    return (
-      <div className="flex items-center justify-center min-h-screen bg-gray-900 text-white">
-        <p>Loading...</p>
-      </div>
-    );
-  }
+  }, [session, router]);
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-900 text-white">
