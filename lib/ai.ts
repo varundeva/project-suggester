@@ -26,7 +26,7 @@ Output Requirements:
 - Include more emojis and bullet points for clarity.
 - Provide Space between sections, and use headings for each section.
 `.trim();
-
+  console.log(prompt)
   const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
     method: "POST",
     headers: {
