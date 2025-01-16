@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-20 text-center">
+    <section className="bg-gradient-to-r from-indigo-700 to-purple-800 text-white py-20 text-center">
       <div className="container mx-auto px-6">
         <h1 className="text-5xl md:text-7xl font-extrabold">
           Discover Your Next Big Project
