@@ -41,6 +41,7 @@ export async function fetchReadmeContent(
     const plainTextContent = markdownContent
       .replace(/<img[^>]*alt=["']([^"']*)["'][^>]*>/gi, (_, alt) => alt || "") // Replace <img> with alt text
       .replace(/<\/?[^>]+(>|$)/g, "") // Remove all HTML tags
+      .replace(/https?:\/\/[^\s]+/g, "") // Remove URLs
       .replace(/&nbsp;/g, " ") // Decode HTML entities like `&nbsp;`
       .replace(/\s+/g, " ") // Collapse multiple spaces into one
       .trim(); // Trim leading/trailing whitespace

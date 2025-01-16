@@ -1,17 +1,26 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
-import rehypeHighlight from "rehype-highlight";
-import "highlight.js/styles/github.css";
+import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw"; 
 
 interface MarkdownRendererProps {
   content: string | null;
 }
 
 const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
+  if (!content) {
+    return <p>No content to display.</p>;
+  }
+console.log(content)
   return (
-    <div className="markdown-body">
-      <ReactMarkdown rehypePlugins={[rehypeHighlight]}>{content}</ReactMarkdown>
-    </div>
+    <section className="prose max-w-none">
+      <ReactMarkdown
+        remarkPlugins={[remarkGfm]} // Enable GitHub-flavored markdown
+        rehypePlugins={[rehypeRaw]} // Enable raw HTML rendering (optional)
+      >
+        {content}
+      </ReactMarkdown>
+    </section>
   );
 };
 

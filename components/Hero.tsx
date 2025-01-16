@@ -1,25 +1,23 @@
-"use client";
-
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="bg-gray-800 text-white py-20 text-center">
+    <section className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-20 text-center">
       <div className="container mx-auto px-6">
-        <h1 className="text-4xl md:text-6xl font-bold">
-          Unleash Your GitHub Potential
+        <h1 className="text-5xl md:text-7xl font-extrabold">
+          Discover Your Next Big Project
         </h1>
-        <p className="mt-4 text-lg md:text-xl">
-          Analyze your GitHub profile and receive AI-powered project suggestions
-          tailored to your skills.
+        <p className="mt-6 text-lg md:text-2xl font-light">
+          Analyze your GitHub profile, identify skill gaps, and let AI suggest
+          personalized projects to help you grow.
         </p>
-        <div className="mt-6 space-x-4">
+        <div className="mt-8 space-x-4">
           <Button asChild>
-            <Link href="/analyse">Get Started</Link>
+            <Link href="/analyse">Get Started Now</Link>
           </Button>
-          <Button variant="outline" asChild>
-            <Link href="/#features">Learn More</Link>
+          <Button variant="ghost" asChild>
+            <Link href="/#features">Explore Features</Link>
           </Button>
         </div>
       </div>

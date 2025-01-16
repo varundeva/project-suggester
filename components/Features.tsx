@@ -1,35 +1,52 @@
 export default function Features() {
   const features = [
     {
-      title: "Analyze Your Repositories",
+      title: "Comprehensive Profile Analysis",
       description:
-        "Discover the languages and technologies you use the most with detailed analytics from your repositories.",
+        "Dive deep into your GitHub profile with insights on your repositories, most-used technologies, and contribution patterns.",
     },
     {
-      title: "AI-Powered Suggestions",
+      title: "AI-Powered Skill Suggestions",
       description:
-        "Get custom project ideas based on your skillset and GitHub activity.",
+        "Identify areas for improvement and receive guidance on the latest industry trends to stay ahead.",
     },
     {
-      title: "Track Your Growth",
+      title: "Tailored Project Recommendations",
       description:
-        "Monitor your contribution history and measure your development over time.",
+        "Receive project ideas that align with your skills and challenge you to learn and grow.",
+    },
+    {
+      title: "Secure and Real-Time Analysis",
+      description:
+        "Your data is analyzed in real-time and never stored, ensuring complete privacy and security.",
+    },
+    {
+      title: "Collaborate and Share",
+      description:
+        "Easily share your profile insights and project ideas with peers or potential employers.",
+    },
+    {
+      title: "Get Inspired to Learn",
+      description:
+        "Explore trending technologies and innovative project ideas to stay motivated in your developer journey.",
     },
   ];
 
   return (
-    <section id="features" className="py-20 bg-gray-100">
+    <section id="features" className="py-20 bg-gray-50">
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center mb-12">
-          Features You&apos;ll Love
+        <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">
+          Why Choose Project Suggester?
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+              className="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow"
             >
-              <h3 className="text-xl font-bold">{feature.title}</h3>
+              <h3 className="text-xl font-semibold text-gray-800">
+                {feature.title}
+              </h3>
               <p className="mt-4 text-gray-600">{feature.description}</p>
             </div>
           ))}

@@ -3,29 +3,46 @@ export const getAiSuggestions = async (
   reposData: object,
 ) => {
   const prompt = `
-Context: You are an experienced technical advisor specializing in analyzing GitHub profiles to provide actionable skill improvement suggestions. Your goal is to suggest innovative projects tailored to the user's skills and interests, avoiding overlap with existing repositories.
-
-Task: Analyze the user's GitHub README and repository data to:
-1. Summarize their skills, interests, and strengths.
-2. Identify 3-5 areas for skill improvement with explanations.
-3. Suggest 5-10 unique project ideas to enhance their skills further:
-   - Projects must align with their skillset but introduce new challenges.
-   - Avoid projects similar to existing repositories.
-
-README Content:
-${readmeContent}
-
-Repository Data:
-${JSON.stringify(reposData)}
-
-Output Requirements:
-- Briefly summarize the user's skills and strengths.
-- List 3-5 skill improvement suggestions with explanations.
-- Suggest 5-10 tailored projects with a goal and benefits for each.
-- Use an encouraging tone.
-- Include more emojis and bullet points for clarity.
-- Provide Space between sections, and use headings for each section.
-`.trim();
+  Context: You are an expert technical mentor specializing in analyzing GitHub profiles and providing actionable career and skill-building advice. Your goal is to help the user grow their skills by suggesting personalized, innovative project ideas and skill improvement areas, while avoiding redundancy with existing repositories.
+  
+  Task: Based on the user's GitHub README and repository data:
+  1. **Summarize Skills and Strengths**:
+     - Highlight their technical skills, programming languages, tools, and frameworks.
+     - Identify key strengths based on repositories and README content.
+     - Mention any notable achievements (e.g., stars, forks, unique topics).
+  
+  2. **Identify Skill Improvement Areas**:
+     - Recommend 3-5 areas for improvement with detailed explanations.
+     - Suggest learning goals that align with industry trends or broaden expertise.
+     - Highlight gaps or lesser-used technologies from their profile.
+  
+  3. **Suggest 5-10 Project Ideas**:
+     - Provide creative and practical project ideas that:
+       - Utilize their current skillset while introducing new challenges.
+       - Avoid already created project which is in topics list.
+       - Encourage learning of new tools, frameworks, or problem-solving techniques.
+     - For each project, include:
+       - **Goal**: The purpose of the project.
+       - **Skills to Learn**: Specific skills or technologies the project enhances.
+       - **Benefits**: How it helps their growth or career.
+  4. **Additional Notes**:
+      - Include any motivational messages or career advice.
+      - Tailor suggestions to the user's skill level and interests.
+  
+  README Content:
+  ${readmeContent}
+  
+  Repository Data:
+  ${JSON.stringify(reposData)}
+  
+  Output Requirements:
+  - Use headings to organize the output: **Skills and Strengths**, **Skill Improvement Suggestions**, **Project Ideas**.
+  - Provide clear, concise points with bullet lists and emojis for readability.
+  - Use an encouraging tone and include motivational notes where possible.
+  - Ensure each section has proper spacing for clarity.
+  - Tailor recommendations to the user’s skill level and interests.
+  `.trim();
+  
   console.log(prompt)
   const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
     method: "POST",
@@ -36,13 +53,24 @@ Output Requirements:
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      model: "microsoft/phi-3-mini-128k-instruct:free",
+      model: "google/gemma-2-9b-it:free",
+      // models:[
+      // "google/gemma-2-9b-it:free",
+      // "mistralai/mistral-7b-instruct:free",
+      // "huggingfaceh4/zephyr-7b-beta:free",
+      // "gryphe/mythomax-l2-13b:free",
+      // "undi95/toppy-m-7b:free",
+      // "meta-llama/llama-3.2-1b-instruct:free",
+      // "meta-llama/llama-3.1-70b-instruct:free",
+      // "qwen/qwen-2-7b-instruct:free"
+      // ],
       messages: [
         {
           role: "user",
           content: prompt,
         },
       ],
+      stream:false
     }),
   });
 

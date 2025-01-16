@@ -1,34 +1,38 @@
-"use client";
 
-import { useEffect } from "react";
-import { signIn, useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
-import { Button } from "@/components/ui/button";
+import { auth, signIn } from "@/auth";
+import Image from "next/image";
+import { redirect } from "next/navigation";
 
-export default function LoginPage() {
-  const { data: session } = useSession()
-  const router = useRouter();
-
-  useEffect(() => {
-    if (session) {
-      router.push("/analyse"); 
-    }
-  }, [session, router]);
-
+export default async function Login() {
+  const session = await auth()
+  if (session) {
+   redirect("/")
+  }
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-900 text-white">
-      <div className="text-center space-y-6">
-        <h1 className="text-4xl font-bold">Welcome to GitHub Analyzer</h1>
-        <p className="text-lg">
-          Sign in with your GitHub account to unlock insights and AI-powered
-          suggestions.
+    <div className="min-h-screen flex flex-col justify-center items-center">
+      <div className="shadow-md rounded-lg p-8 w-full max-w-md text-center flex flex-col items-center">
+        <h1 className="text-3xl font-bold text-gray-800 mb-6">Welcome Back!</h1>
+        <p className="text-gray-600 mb-8">
+          Sign in with your GitHub account to get started.
         </p>
-        <Button
-          className="bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-lg text-lg"
-          onClick={() => signIn("github")}
-        >
+
+        <form
+      action={async () => {
+        "use server"
+        await signIn("github", { callbackUrl: "/analyse" })
+      }}
+    >
+      <button
+          className="w-full flex justify-between items-center bg-gray-500 hover:bg-gray-800 text-white py-2 px-4 rounded-lg text-lg font-medium transition-colors"
+        type="submit"
+       >
           Login with GitHub
-        </Button>
+          <Image src="https://authjs.dev/img/providers/github.svg" alt={"GitHub"} height={24} width={24} loading="lazy" className="ml-2"/>
+          
+        </button>
+    </form>
+
+        
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 export const maxDuration = 60;
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { redirect } from "next/navigation";
 import { analyzeUserSkills } from "@/lib/repoDataAggrigator";
@@ -90,15 +91,15 @@ export default async function DashboardPage() {
     console.log(readmeContent)
     console.log(repoAggregatedData)
     return (
-      <div className="container mx-auto py-8">
-        <h1 className="text-3xl font-bold mb-4">
-          Welcome, {githubData.user.name}
-        </h1>
-        <p className="text-lg text-gray-700 mb-6">
-          Here are some tailored insights and project suggestions for you:
-        </p>
-        <MarkdownRenderer content={aiResponse} />
-      </div>
+      <div className="container mx-auto py-8 px-8 lg:px-0 sm:px-4">
+      <h1 className="text-3xl font-bold mb-4">
+        Welcome, {githubData.user.name}
+      </h1>
+      <p className="text-lg text-gray-700 mb-6">
+        Here are some tailored insights and project suggestions for you:
+      </p>
+      <MarkdownRenderer content={aiResponse} />
+    </div>
     );
   } catch (error: any) {
     
