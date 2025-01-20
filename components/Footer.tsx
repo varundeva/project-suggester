@@ -29,7 +29,11 @@ export default function Footer() {
                   How It Works
                 </Link>
               </li>
-             
+              <li>
+                <Link href="/about" className="hover:text-gray-300">
+                  About
+                </Link>
+              </li>
             </ul>
           </div>
 

@@ -12,7 +12,7 @@ export default function Navbar() {
     <nav className="flex justify-between items-center px-6 py-4 bg-gray-900 text-white">
       {/* Logo */}
       <div className="text-lg font-bold">
-        <Link href="/">Project Suggester</Link>
+        <Link href="/">Ai Project Suggester</Link>
       </div>
 
       {/* Desktop Links */}
@@ -23,6 +23,12 @@ export default function Navbar() {
         <Link href="/#how-it-works" className="hover:text-gray-300">
           How It Works
         </Link>
+        <Link
+              href="/about"
+              className="hover:text-gray-300"
+            >
+              About
+            </Link>
         <Link href="/#try-it" className="hover:text-gray-300">
           Try It
         </Link>
@@ -94,7 +100,7 @@ export default function Navbar() {
 
 
             {
-              status === "authenticated" ? (<Button>Sign Out</Button>) : (<Button>Sign In</Button>)
+              status === "authenticated" ? (<Button onClick={() => signOut()}>Sign Out</Button>) : (<Button>Sign In</Button>)
             }
           </div>
         </div>

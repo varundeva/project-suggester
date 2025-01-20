@@ -1,4 +1,3 @@
-
 import { auth, signIn } from "@/auth";
 import Image from "next/image";
 import { redirect } from "next/navigation";

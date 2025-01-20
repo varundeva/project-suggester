@@ -7,6 +7,8 @@ import { fetchReadmeContent } from "@/lib/fetchReadmeContent";
 import { getAiSuggestions } from "@/lib/ai";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
 import { auth } from "@/auth"
+import type { Metadata } from 'next'
+
 // Define TypeScript interfaces for clarity
 interface Repo {
   id: number;
@@ -19,6 +21,45 @@ interface GitHubData {
   user: { name: string, login:string };
   repos: Repo[];
 }
+
+
+export const metadata: Metadata = {
+  title: "Analyze GitHub Profile | AI-Powered Insights and Suggestions",
+  description:
+    "View detailed AI-powered analysis of your GitHub profile, including skill insights, personalized project suggestions, and growth opportunities.",
+  keywords: [
+    "GitHub profile analysis",
+    "AI insights for developers",
+    "personalized project suggestions",
+    "developer skill analysis",
+    "GitHub data insights",
+    "AI-powered GitHub analysis",
+    "GitHub analytics tool",
+    "developer growth opportunities",
+  ].join(", "),
+  openGraph: {
+    title: "Analyze GitHub Profile | AI-Powered Insights and Suggestions",
+    description:
+      "Unlock the potential of your GitHub profile with AI-powered analysis. Discover skill gaps, gain insights, and receive personalized project recommendations.",
+    url: "https://project-suggester.vercel.app/analyse",
+    type: "website",
+    images: [
+      {
+        url: "https://project-suggester.vercel.app/og-image.png", 
+        width: 1200,
+        height: 630,
+        alt: "Analyze GitHub Profile - AI Insights and Suggestions",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Analyze GitHub Profile | AI-Powered Insights and Suggestions",
+    description:
+      "View AI-driven insights for your GitHub profile, identify skill gaps, and receive tailored project ideas to enhance your skills.",
+    images: ["https://project-suggester.vercel.app/og-image.png"], 
+  },
+};
 
 // Fetch GitHub data
 async function fetchGitHubData(accessToken: string): Promise<GitHubData> {

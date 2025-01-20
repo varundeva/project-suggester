@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import "./globals.css";
 import Footer from "@/components/Footer";
