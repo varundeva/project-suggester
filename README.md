@@ -3,6 +3,9 @@
 
 Unlock your GitHub potential with **Project Suggester**! This open-source project analyzes GitHub profiles using AI to provide tailored insights, identify skill gaps, and suggest personalized project ideas to help developers grow.
 
+## GitAds Sponsored
+[![Sponsored by GitAds](https://gitads.dev/v1/ad-serve?source=varundeva/project-suggester@github)](https://gitads.dev/v1/ad-track?source=varundeva/project-suggester@github)
+
 ## 🌟 Features
 
 - **AI-Powered Analysis**: Get an in-depth analysis of your GitHub repositories, contributions, and skills.
