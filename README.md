@@ -1,3 +1,4 @@
+<!-- GitAds-Verify: A7L4S24XYMEHSMZ42B936IZWYPZ4Z4QX -->
 # Project Suggester 🎯
 
 Unlock your GitHub potential with **Project Suggester**! This open-source project analyzes GitHub profiles using AI to provide tailored insights, identify skill gaps, and suggest personalized project ideas to help developers grow.
